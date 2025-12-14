@@ -15,7 +15,15 @@ spec:
         app: netflix-app
     spec:
       containers:
-      - name: netflix-app
-        image: jseb3723/netflix:latest
-        ports:
-        - containerPort: 80
+        - name: netflix-app
+          image: jseb3723/netflix:latest
+          ports:
+            - containerPort: 80
+          env:
+            # For React apps
+            - name: REACT_APP_TMDB_API_KEY
+              value: "3aaec546d113e62a1a0ea9f1b97082b0"
+
+            # If your app is Vite-based, uncomment this instead
+            # - name: VITE_TMDB_API_KEY
+            #   value: "3aaec546d113e62a1a0ea9f1b97082b0"
